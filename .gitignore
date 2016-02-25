@@ -1,0 +1,8 @@
+# Pycharm
+.idea/
+
+# Optimized python
+*.py[cod]
+
+# Python package files
+flexi.egg-info/

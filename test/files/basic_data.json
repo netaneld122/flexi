@@ -1,0 +1,7 @@
+{
+  "value1": 2,
+  "value2": "test",
+  "tree": {
+    "value1": 2.3
+  }
+}
