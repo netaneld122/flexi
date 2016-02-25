@@ -8,16 +8,11 @@ Flexi is a flexible utility that allows you to import and export any tree data s
 
 ### Usage example ###
 
-Standard serialization routines
+**Standard serialization routines**
 ```python
 root = flexi.json.load('file.json')
 root.some_key.test = 3
 flexi.xml.dump(root, 'file.xml')
-```
-
-Custom serializers
-```python
-
 ```
 
 ### How do I get set up? ###
