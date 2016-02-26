@@ -1,5 +1,9 @@
-<value1 type="LONG">2</value1>
-<value2 type="STRING">test</value2>
-<tree>
-	<value1 type="DOUBLE">2.3</value1>
-</tree>
+<root>
+	<tree name="my_tree">
+		<element name="value1" type="long">2</element>
+		<element name="value2" type="string">test</element>
+		<list name="my_list">
+			<element name="value1" type="double">2.3</element>
+		</list>
+	<tree>
+</root>

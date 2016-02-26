@@ -14,12 +14,12 @@ root = flexi.json.load('file.json')
 # Change existing values
 root.some_existing_key.test = 3
 
-# Add new sub trees
-root.new('my_tree')
+# Create new sub trees
+root.create('my_tree')
 root.my_tree.new_value = [1, 2, 3]
 
 # Can be shortened to
-root.new('a.b').value = 1
+root.create('a.b').value = 1
 print root.a.b
 
 # Dump all changes 

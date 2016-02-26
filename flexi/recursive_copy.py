@@ -6,7 +6,7 @@ def dict_to_tree(d, tree):
         if isinstance(d[key], dict):
             # Create a sub tree for the first time
             if key not in tree:
-                tree.new(key)
+                tree.create(key)
             dict_to_tree(d[key], tree[key])
         else:
             tree[key] = d[key]

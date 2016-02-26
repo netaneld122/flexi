@@ -10,7 +10,7 @@ class Tree(object):
         # This is the proper way to use a member without causing an infinite recursive call (due to __setattr__)
         self.__dict__['ordered_dict'] = collections.OrderedDict()
 
-    def new(self, key):
+    def create(self, key):
         ordered_dict = self.__dict__['ordered_dict']
 
         # Make sure the first sub key does match any sub tree
