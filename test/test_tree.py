@@ -22,9 +22,9 @@ class TestTree(unittest.TestCase):
         root.tree.tree2.list = [1, 2, 3]
 
         def recurse(tree):
-            for key, value in tree:
-                if isinstance(value, flexi.Tree):
-                    recurse(value)
+            for key in tree:
+                if isinstance(tree[key], flexi.Tree):
+                    recurse(tree[key])
         recurse(root)
 
     def test_contains(self):

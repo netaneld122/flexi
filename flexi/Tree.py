@@ -22,16 +22,14 @@ class Tree(object):
         del data[key]
 
     def __getitem__(self, key):
-        data = self.__dict__['data']
-        return data[key]
+        return self.__getattr__(key)
 
     def __setitem__(self, key, value):
-        data = self.__dict__['data']
-        data[key] = value
+        self.__setattr__(key, value)
 
     def __iter__(self):
         data = self.__dict__['data']
-        return data.iteritems()
+        return data.iterkeys()
 
     def __contains__(self, key):
         data = self.__dict__['data']
