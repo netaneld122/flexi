@@ -13,7 +13,7 @@ class Tree(object):
 
         # Hack to ignore ipython calls to __getattr__
         if key == '_ipython_display_':
-            return object.__getattr__(key)
+            return getattr(super(Tree, self), key)
 
         if key not in ordered_dict:
             ordered_dict[key] = Tree()
@@ -47,6 +47,10 @@ class Tree(object):
 
     def __ne__(self, other):
         return not self.__eq__(other)
+
+    def __dir__(self):
+        ordered_dict = self.__dict__['ordered_dict']
+        return ordered_dict.keys()
 
     def __str__(self):
         return self.__repr__()

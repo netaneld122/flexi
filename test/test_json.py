@@ -9,4 +9,4 @@ class TestJson(unittest.TestCase):
         output_json = r'files\output\basic_data.json'
         root = flexi.json.load(input_json)
         flexi.json.dump(root, output_json)
-        self.assertEqual(root, flexi.json.load(input_json))
+        self.assertEqual(root, flexi.json.load(output_json))

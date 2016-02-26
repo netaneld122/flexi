@@ -1,0 +1,5 @@
+<value1 type="LONG">2</value1>
+<value2 type="STRING">test</value2>
+<tree>
+	<value1 type="DOUBLE">2.3</value1>
+</tree>
