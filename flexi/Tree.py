@@ -1,3 +1,4 @@
+import pprint
 import collections
 
 
@@ -5,26 +6,26 @@ class Tree(object):
 
     def __init__(self):
         # This is the proper way to use a member without causing an infinite recursive call (due to __setattr__)
-        self.__dict__['data'] = collections.OrderedDict()
+        self.__dict__['ordered_dict'] = collections.OrderedDict()
 
     def __getattr__(self, key):
-        data = self.__dict__['data']
+        ordered_dict = self.__dict__['ordered_dict']
 
         # Hack to ignore ipython calls to __getattr__
         if key == '_ipython_display_':
             return object.__getattr__(key)
 
-        if key not in data:
-            data[key] = Tree()
-        return data[key]
+        if key not in ordered_dict:
+            ordered_dict[key] = Tree()
+        return ordered_dict[key]
 
     def __setattr__(self, key, value):
-        data = self.__dict__['data']
-        data[key] = value
+        ordered_dict = self.__dict__['ordered_dict']
+        ordered_dict[key] = value
 
     def __delattr__(self, key):
-        data = self.__dict__['data']
-        del data[key]
+        ordered_dict = self.__dict__['ordered_dict']
+        del ordered_dict[key]
 
     def __getitem__(self, key):
         return self.__getattr__(key)
@@ -33,9 +34,24 @@ class Tree(object):
         self.__setattr__(key, value)
 
     def __iter__(self):
-        data = self.__dict__['data']
-        return data.iterkeys()
+        ordered_dict = self.__dict__['ordered_dict']
+        return ordered_dict.iterkeys()
 
     def __contains__(self, key):
-        data = self.__dict__['data']
-        return key in data
+        ordered_dict = self.__dict__['ordered_dict']
+        return key in ordered_dict
+
+    def __eq__(self, other):
+        ordered_dict = self.__dict__['ordered_dict']
+        return ordered_dict == other.__dict__['ordered_dict']
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
+
+    def __str__(self):
+        return self.__repr__()
+
+    def __repr__(self):
+        ordered_dict = self.__dict__['ordered_dict']
+        # pprint does not support ordered dicts
+        return pprint.pformat(dict(ordered_dict.items()), width=1)

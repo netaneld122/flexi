@@ -13,7 +13,7 @@ def dump(tree, json_file_path):
     with open(json_file_path, 'w') as fp:
         d = {}
         recursive_copy_tree_to_dict(tree, d)
-        return json.dump(d, fp)
+        return json.dump(d, fp, indent=4)
 
 
 def recursive_copy_dict_to_tree(d, tree):

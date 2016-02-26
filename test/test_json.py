@@ -5,5 +5,8 @@ import flexi
 class TestJson(unittest.TestCase):
 
     def test_sanity(self):
-        root = flexi.json.load(r'files\basic_data.json')
-        flexi.json.dump(root, r'files\output\basic_data.json')
+        input_json = r'files\basic_data.json'
+        output_json = r'files\output\basic_data.json'
+        root = flexi.json.load(input_json)
+        flexi.json.dump(root, output_json)
+        self.assertEqual(root, flexi.json.load(input_json))
