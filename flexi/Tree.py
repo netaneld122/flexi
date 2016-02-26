@@ -1,7 +1,7 @@
 import pprint
 import collections
 
-from exceptions import TreeAlreadyExistsException
+from exceptions import SubTreeAlreadyExistsException
 
 
 class Tree(object):
@@ -12,10 +12,20 @@ class Tree(object):
 
     def new(self, key):
         ordered_dict = self.__dict__['ordered_dict']
-        if key in ordered_dict:
-            raise TreeAlreadyExistsException(key)
-        ordered_dict[key] = Tree()
-        return ordered_dict[key]
+
+        # Make sure the first sub key does match any sub tree
+        sub_keys = key.split('.')
+        if sub_keys[0] in ordered_dict:
+            raise SubTreeAlreadyExistsException(key)
+
+        # Create all sub trees
+        current_dict = ordered_dict
+        for sub_key in sub_keys:
+            new_tree = Tree()
+            current_dict[sub_key] = new_tree
+            current_dict = current_dict[sub_key].ordered_dict
+
+        return new_tree
 
     def __getattr__(self, key):
         ordered_dict = self.__dict__['ordered_dict']

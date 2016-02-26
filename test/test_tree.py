@@ -48,3 +48,8 @@ class TestTree(unittest.TestCase):
 
         root2.a.b.c = 3
         self.assertNotEqual(root1, root2)
+
+    def test_multiple_sub_tree_creation(self):
+        root = Tree()
+        root.new('a.b.c.d')
+        root.a.b.c.d.value = 1

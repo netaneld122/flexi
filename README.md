@@ -19,7 +19,8 @@ root.new('my_tree')
 root.my_tree.new_value = [1, 2, 3]
 
 # Can be shortened to
-root.new('a').new('b').value = 1
+root.new('a.b').value = 1
+print root.a.b
 
 # Dump all changes 
 flexi.xml.dump(root, 'file.xml')

@@ -1,4 +1,4 @@
-class TreeAlreadyExistsException(Exception):
+class SubTreeAlreadyExistsException(Exception):
 
     def __init__(self, key):
-        super(TreeAlreadyExistsException, self).__init__(key)
+        super(SubTreeAlreadyExistsException, self).__init__(key)
