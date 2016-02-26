@@ -9,6 +9,11 @@ class Tree(object):
 
     def __getattr__(self, key):
         data = self.__dict__['data']
+
+        # Hack to ignore ipython calls to __getattr__
+        if key == '_ipython_display_':
+            return object.__getattr__(key)
+
         if key not in data:
             data[key] = Tree()
         return data[key]
