@@ -1,6 +1,8 @@
 import pprint
 import collections
 
+from exceptions import TreeAlreadyExistsException
+
 
 class Tree(object):
 
@@ -8,15 +10,15 @@ class Tree(object):
         # This is the proper way to use a member without causing an infinite recursive call (due to __setattr__)
         self.__dict__['ordered_dict'] = collections.OrderedDict()
 
+    def new(self, key):
+        ordered_dict = self.__dict__['ordered_dict']
+        if key in ordered_dict:
+            raise TreeAlreadyExistsException(key)
+        ordered_dict[key] = Tree()
+        return ordered_dict[key]
+
     def __getattr__(self, key):
         ordered_dict = self.__dict__['ordered_dict']
-
-        # Hack to ignore ipython calls to __getattr__
-        if key == '_ipython_display_':
-            return getattr(super(Tree, self), key)
-
-        if key not in ordered_dict:
-            ordered_dict[key] = Tree()
         return ordered_dict[key]
 
     def __setattr__(self, key, value):
