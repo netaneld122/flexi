@@ -7,7 +7,7 @@ except ImportError:
 setup(
     name='flexi',
     version='1.0',
-    install_requires=['click', 'path.py'],
+    install_requires=['lxml', 'path.py'],
     packages=['flexi'],
     url='https://bitbucket.org/netaneld122/flexi',
     license='GPL License',
