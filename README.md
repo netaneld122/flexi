@@ -16,7 +16,7 @@ root.some_existing_key.test = 3
 
 # Create new sub trees
 root.create('my_tree')
-root.my_tree.new_value = [1, 2, 3]
+root.my_tree.new_value = 1.2
 
 # Can be shortened to
 root.create('a.b').value = 1
