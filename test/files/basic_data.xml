@@ -1,9 +1,9 @@
 <root>
 	<tree name="my_tree">
-		<element name="value1" type="long">2</element>
-		<element name="value2" type="string">test</element>
-		<list name="my_list">
-			<element name="value1" type="double">2.3</element>
-		</list>
-	<tree>
+		<param type="long" name="value1">2</param>
+		<param type="string" name="value2">test</param>
+		<tree name="my_sub_tree">
+			<param type="double" name="value1">2.3</param>
+		</tree>
+	</tree>
 </root>
