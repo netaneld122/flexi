@@ -1,6 +1,7 @@
 import lxml.objectify
 
 from flexi.tree import Tree
+from flexi.tree import create_sub_tree
 from flexi.serializers.xml.param_serializers import get_param_serializer
 from flexi.serializers.xml.param_serializers import get_leaf_serializer
 from flexi.serializers.xml.exceptions import UnsupportedElementException
@@ -12,7 +13,7 @@ from flexi.serializers.xml.exceptions import UnsupportedElementException
 def xml_to_tree(element, tree):
 
     if 'tree' == element.tag:
-        tree = tree.create(element.get('name'))
+        tree = create_sub_tree(tree, element.get('name'))
 
     if element.tag in ('root', 'tree'):
         for sub_element in element.iterchildren():

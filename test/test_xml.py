@@ -19,11 +19,4 @@ class TestXml(unittest.TestCase):
         flexi.xml.dump(root, self.output_xml)
         self.assertEqual(root, flexi.xml.load(self.output_xml))
 
-    def test_xml_content_equality(self):
-        # This test is extremely fragile, consider removing it at some point
-        with open(self.input_xml) as input_file:
-            with open(self.output_xml) as output_file:
-                self.maxDiff = None
-                self.assertSequenceEqual(self.uglify(input_file.read()), self.uglify(output_file.read()))
-
     # @TODO Add list serialization tests
