@@ -15,11 +15,11 @@ root = flexi.json.load('file.json')
 root.some_existing_key.test = 3
 
 # Create new sub trees
-root.create('my_tree')
+create_sub_tree(root, 'my_tree')
 root.my_tree.new_value = 1.2
 
 # Can be shortened to
-root.create('a.b').value = 1
+create_sub_tree(root, 'a.b').value = 1
 print root.a.b
 
 # Dump all changes 
