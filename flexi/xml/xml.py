@@ -3,8 +3,6 @@ import lxml.etree
 
 import flexi.xml.serializers
 
-from flexi.tree import Tree
-from flexi.xml import element_maker
 from flexi.xml import serializer_registry
 
 

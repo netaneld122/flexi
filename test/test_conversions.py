@@ -10,6 +10,7 @@ class TestXml(unittest.TestCase):
     output_json = r'files\output\basic_data.json'
 
     def test_xml_to_json(self):
-        root = flexi.xml.load(self.input_xml)
-        flexi.json.dump(root, self.output_json)
-        self.assertEqual(root, flexi.json.load(self.output_json))
+        root1 = flexi.xml.load(self.input_xml)
+        flexi.json.dump(root1, self.output_json)
+        root2 = flexi.json.load(self.output_json)
+        self.assertEqual(root1, root2)
