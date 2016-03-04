@@ -1,15 +1,9 @@
 import unittest
+
 import flexi
 
 
 class TestXml(unittest.TestCase):
-
-    @staticmethod
-    def uglify(xml_content):
-        bad_chars = '\n\r\t '
-        for bad_char in bad_chars:
-            xml_content = xml_content.replace(bad_char, '')
-        return xml_content.strip()
 
     input_xml = r'files\basic_data.xml'
     output_xml = r'files\output\basic_data.xml'

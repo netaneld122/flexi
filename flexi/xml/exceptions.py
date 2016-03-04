@@ -4,10 +4,10 @@ class UnsupportedElementException(Exception):
         super(UnsupportedElementException, self).__init__(element_tag)
 
 
-class UnsupportedParamTypeException(Exception):
+class UnsupportedPythonTypeException(Exception):
 
     def __init__(self, param_type):
-        super(UnsupportedParamTypeException, self).__init__(param_type)
+        super(UnsupportedPythonTypeException, self).__init__(param_type)
 
 
 class UnsupportedLeafException(Exception):

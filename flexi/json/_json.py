@@ -1,6 +1,6 @@
 import json
 
-from flexi import recursive_copy
+from flexi.json import recursive_copy
 from flexi.tree import Tree
 
 
