@@ -5,5 +5,8 @@
 		<tree name="my_sub_tree">
 			<param type="double" name="value1">2.3</param>
 		</tree>
+		<list name="test">
+			<param type="bool" name="test">false</param>
+		</list>
 	</tree>
 </root>

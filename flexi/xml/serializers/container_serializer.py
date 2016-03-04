@@ -1,7 +1,10 @@
 from flexi.xml import matches
 from flexi.xml import serializer_registry
 from flexi.xml import element_maker
+
 from flexi.tree import Tree
+from flexi.list_tree import ListTree
+from flexi.root_tree import RootTree
 
 
 def tree_children_to_element(tree, element):
@@ -33,18 +36,6 @@ class ContainerSerializer(object):
         return tree
 
 
-class RootTree(Tree):
-    pass
-
-
-class ListTree(Tree):
-    pass
-
-
-class QueueTree(Tree):
-    pass
-
-
 @matches.xml_element('root')
 @matches.python_type(RootTree)
 class RootTreeSerializer(ContainerSerializer):
@@ -73,8 +64,3 @@ class TreeSerializer(ContainerSerializer):
 class ListSerializer(ContainerSerializer):
     pass
 
-
-@matches.xml_element('queue')
-@matches.python_type(QueueTree)
-class QueueSerializer(ContainerSerializer):
-    pass
