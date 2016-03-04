@@ -23,4 +23,4 @@ def dump(tree, xml_file_path):
     element = serializer.tree_to_xml('root', tree)
     root_tree = element.getroottree()
     with open(xml_file_path, 'w') as fp:
-        root_tree.write(fp, pretty_print=True)
+        root_tree.write(fp, pretty_print=True, encoding='UTF-8')

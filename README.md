@@ -8,7 +8,7 @@ Flexi is a flexible utility that allows you to import and export any tree data s
 
 ### Usage example ###
 
-## Simple tree operations ##
+#### Simple tree operations ####
 ```python
 # Load the entire json to memory
 root = flexi.json.load('file.json')
@@ -30,16 +30,16 @@ flexi.xml.dump(root, 'file.xml')
 flexi.xml.dump(root.a, 'file.xml')
 ```
 
-## Adding xml serializers ##
+#### Adding xml serializers ####
 ```python
-class MyTag(object):
+class MyDadaHolder(object):
     data = None
 
 @matches.xml_element('my_tag', attr='foobar')
-@matches.python_type(MyTag)
+@matches.python_type(MyDadaHolder)
 class MyTagSerializer(object):
 
-    def tree_to_xml(self, name, my_tag_instance, element):
+    def tree_to_xml(self, name, my_data_holder, element):
         # ...
 
     def xml_to_tree(self, element, tree):

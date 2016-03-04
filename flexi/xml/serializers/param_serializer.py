@@ -28,7 +28,7 @@ class DoubleParamSerializer(ParamSerializer):
 
 
 @matches.xml_element('param', type='string')
-@matches.python_type(str)
+@matches.python_type(unicode)
 class StringParamSerializer(ParamSerializer):
     pass
 
