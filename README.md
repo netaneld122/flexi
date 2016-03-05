@@ -11,9 +11,11 @@ Flexi is a flexible utility that allows you to import and export any tree data s
 #### Simple tree operations ####
 ```python
 # Load the entire xml to memory
-root = flexi.xml.load('file.xml')
+root = flexi.load('file.xml')
 # Change existing values
 root.some_existing_key.test = 3
+root.some_existing_list[17].my_value = 3
+del root.some_existing_list[17].test
 
 # Create new sub trees
 create_sub_tree(root, 'my_tree')
@@ -23,11 +25,9 @@ root.my_tree.new_value = 1.2
 create_sub_tree(root, 'a.b').value = 1
 print root.a.b
 
-# Dump all changes 
-flexi.xml.dump(root, 'file.xml')
-
-# Can also dump a sub tree
-flexi.xml.dump(root.a, 'file.xml')
+# Dump all changes (can dump sub trees)
+flexi.dump(root, 'file.xml')
+flexi.dump(root.a, 'file.a.xml')
 ```
 
 #### Adding xml serializers ####
