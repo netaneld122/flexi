@@ -28,7 +28,6 @@ print root.a.b
 
 # Dump all changes (can dump sub trees)
 flexi.dump(root, 'file.xml')
-flexi.dump(root.a, 'file.a.xml')
 ```
 
 #### Adding xml serializers ####
