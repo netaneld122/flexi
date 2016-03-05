@@ -54,3 +54,14 @@ class TestTree(unittest.TestCase):
         root = Tree()
         create_sub_tree(root, 'a.b.c.d')
         root.a.b.c.d.value = 1
+
+    def test_list(self):
+        root = Tree()
+        root.list = []
+        root.list.append(Tree())
+        root.list.append(Tree())
+        root.list[0].test = 'test'
+        root.list[1].test = 'test'
+        root.list[1].inner_list = []
+        root.list[1].inner_list.append('test')
+        self.assertEqual(root.list[1].inner_list[0], 'test')

@@ -10,8 +10,8 @@ Flexi is a flexible utility that allows you to import and export any tree data s
 
 #### Simple tree operations ####
 ```python
-# Load the entire json to memory
-root = flexi.json.load('file.json')
+# Load the entire xml to memory
+root = flexi.xml.load('file.xml')
 # Change existing values
 root.some_existing_key.test = 3
 

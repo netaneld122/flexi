@@ -36,12 +36,11 @@ def get_xml_serializer(element):
     raise UnsupportedElementException(lxml.etree.tostring(element, pretty_print=True))
 
 
-# flexi.xml.matches decorators fill this list
-tree_serializers = []
+# flexi.xml.matches decorators fill this dict
+tree_serializers = {}
 
 
 def get_tree_serializer(value):
-    for tree_serializer in tree_serializers:
-        if type(value) is tree_serializer.python_type:
-            return tree_serializer()
-    raise UnsupportedPythonTypeException(str(type(value)))
+    if type(value) not in tree_serializers:
+        raise UnsupportedPythonTypeException(type(value))
+    return tree_serializers[type(value)]()

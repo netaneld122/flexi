@@ -8,6 +8,7 @@ def xml_element_injector(element):
     def wrapper(cls):
         serializer_registry.xml_serializers.append(cls)
         cls.xml_element = element
+        return cls
     return wrapper
 
 
@@ -29,6 +30,6 @@ def python_type(_python_type):
 
     def python_type_injector(cls):
         cls.python_type = _python_type
-        serializer_registry.tree_serializers.append(cls)
+        serializer_registry.tree_serializers[_python_type] = cls
         return cls
     return python_type_injector

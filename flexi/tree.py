@@ -4,6 +4,18 @@ import collections
 from exceptions import SubTreeAlreadyExistsException
 
 
+class Leaf(object):
+
+    def __init__(self, ordered_dict, key):
+        self.ordered_dict = ordered_dict
+        self.key = key
+
+    def __call__(self, value=None):
+        if value is not None:
+            self.ordered_dict[self.key] = value
+        return self.ordered_dict[self.key]
+
+
 class Tree(object):
 
     def __init__(self):
@@ -54,6 +66,10 @@ class Tree(object):
         ordered_dict = self.__dict__['_ordered_dict']
         # pprint does not support ordered dicts
         return pprint.pformat(dict(ordered_dict.items()), width=1)
+
+
+class RootTree(Tree):
+    pass
 
 
 def create_sub_tree(root, key):

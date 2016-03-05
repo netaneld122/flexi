@@ -1,12 +1,29 @@
 <root>
 	<tree name="my_tree">
-		<param type="long" name="value1">2</param>
-		<param type="string" name="value2">test</param>
-		<tree name="my_sub_tree">
-			<param type="double" name="value1">2.3</param>
+		<tree name="my_inner_tree">
+			<list name="my_list">
+				<element>
+					<list name="my_list">
+						<element>
+							<param type="bool" name="test">true</param>
+						</element>
+						<element>
+							<param type="double" name="test">1.2</param>
+						</element>
+					</list>
+				</element>
+				<element>
+					<param type="string" name="value">testing</param>
+				</element>
+			</list>
 		</tree>
-		<list name="test">
-			<param type="bool" name="test">false</param>
-		</list>
 	</tree>
+	<list name="my_list">
+		<element>
+			<param type="long" name="test">10</param>
+		</element>
+		<element>
+			<param type="long" name="test">20</param>
+		</element>
+	</list>
 </root>
