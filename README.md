@@ -33,11 +33,11 @@ flexi.dump(root.a, 'file.a.xml')
 
 #### Adding xml serializers ####
 ```python
-class MyDadaHolder(object):
+class MyDataHolder(object):
     data = None
 
 @matches.xml_element('my_tag', attr='foobar')
-@matches.python_type(MyDadaHolder)
+@matches.python_type(MyDataHolder)
 class MyTagSerializer(object):
 
     def tree_to_xml(self, name, my_data_holder, element):
