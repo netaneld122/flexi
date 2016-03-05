@@ -26,7 +26,7 @@ root.my_tree.new_value = 1.2
 create_sub_tree(root, 'a.b').value = 1
 print root.a.b
 
-# Dump all changes (can dump sub trees)
+# Dump all changes back to disk
 flexi.dump(root, 'file.xml')
 ```
 
