@@ -4,18 +4,6 @@ import collections
 from exceptions import SubTreeAlreadyExistsException
 
 
-class Leaf(object):
-
-    def __init__(self, ordered_dict, key):
-        self.ordered_dict = ordered_dict
-        self.key = key
-
-    def __call__(self, value=None):
-        if value is not None:
-            self.ordered_dict[self.key] = value
-        return self.ordered_dict[self.key]
-
-
 class Tree(object):
 
     def __init__(self):
